@@ -1,8 +1,10 @@
 # PS3_IM920sl
 IM920slをBrain BoardのSBDBTソケットに刺せるライブラリ。
 
-https://www.interplan.co.jp/solution/wireless/im920sl/　・・・IM920sl本体データシート
-https://www.interplan.co.jp/solution/wireless/others/im920c_adp.php　・・・26ピン変換基盤データシート
+IM920sl本体データシート
+https://www.interplan.co.jp/solution/wireless/im920sl/
+26ピン変換基盤データシート
+https://www.interplan.co.jp/solution/wireless/others/im920c_adp.php
 
 フォルダ説明:
 　・PS3_IM920sl_TXは、arduino UnoにUSB_Host_Shield、コントローラーを有線で接続する。IM920slは、26ピンに変換し、UART接続をすること。
