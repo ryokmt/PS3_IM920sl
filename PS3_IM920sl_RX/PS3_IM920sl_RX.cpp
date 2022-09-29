@@ -1,4 +1,4 @@
-#include "PS3_IM920sl.h"
+#include "PS3_IM920sl_RX.h"
 
 typedef uint8_t byte;
 typedef uint8_t boolean;
@@ -8,11 +8,11 @@ Timer lap1;
 // Serial pc(USBTX, USBRX, 921600); //Serial Tx pin name, Serial Rx pin name, Frequency
 // void pc_RX();
 
-PS3_IM920sl::PS3_IM920sl( PinName rx, PinName tx):BufferedSerial(rx, tx){
+PS3_IM920sl_RX::PS3_IM920sl_RX( PinName tx, PinName rx):BufferedSerial(tx, rx){
   return;
 }
 
-byte PS3_IM920sl::readMsg(byte *data, const byte length, byte condition, unsigned long timeout){
+byte PS3_IM920sl_RX::readMsg(byte *data, const byte length, byte condition, unsigned long timeout){
   unsigned long start_time = lap1.read_ms();
   bool flag = 0;
   byte tmpData = 0;
@@ -56,7 +56,7 @@ byte PS3_IM920sl::readMsg(byte *data, const byte length, byte condition, unsigne
   return 0;  // timeout
 } // end of recvMsg
 
-void PS3_IM920sl::task(){
+void PS3_IM920sl_RX::task(){
   byte data[11];
   lap1.start();
 
@@ -74,7 +74,7 @@ void PS3_IM920sl::task(){
   z = rlZ[0] + rlZ[1];
 }
 
-void PS3_IM920sl::fixData(byte *data){
+void PS3_IM920sl_RX::fixData(byte *data){
   if(data[0] == ':'){
     j = 0;
     for(i = 1; i < 12; i++){

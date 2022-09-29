@@ -1,10 +1,10 @@
-#ifndef PS3_IM920sl_H
-#define PS3_IM920sl_H
+#ifndef PS3_IM920sl_RX_H
+#define PS3_IM920sl_RX_H
 
 #include "mbed.h"
 #include "BufferedSerial.h"
 
-class PS3_IM920sl : public BufferedSerial{
+class PS3_IM920sl_RX : public BufferedSerial{
     private:
     
     volatile int j, i;
@@ -27,7 +27,7 @@ class PS3_IM920sl : public BufferedSerial{
     // volatile bool down_up, down_left, down_down, down_right, down_triangle, down_square, down_cross, down_circle, down_l1, down_r1, down_select, down_start;
     volatile bool raise_up, raise_left, raise_down, raise_right, raise_triangle, raise_square, raise_cross, raise_circle, raise_l1, raise_r1, raise_select, raise_start;
 
-    PS3_IM920sl(PinName TX, PinName RX);
+    PS3_IM920sl_RX(PinName TX, PinName RX);
     byte readMsg (byte * data, const byte length, byte condition, unsigned long timeout);
 
     void task();
